@@ -5,11 +5,11 @@ db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Necklaces' },
+    { name: 'Bracelets' },
+    { name: 'Earrings' },
+    { name: 'Metal statues' },
+    { name: 'Other' }
   ]);
 
   console.log('categories seeded');
@@ -18,113 +18,63 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
-      name: 'Tin of Cookies',
-      description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+      name: 'Necklace',
+      description: 'Necklaces.',
+      image: 'https://www.etsy.com/listing/554633453/helm-chain-choker-chainmail-choker?gpla=1&gao=1&&utm_source=google&utm_medium=cpc&utm_campaign=shopping_us_a-jewelry-necklaces-chokers&utm_custom1=_k_Cj0KCQjwho-lBhC_ARIsAMpgMoelk91RsLNYgUfyooUtWEpxndn-LK791FRV7yUUTQ4tS4OvH9M9DScaAhT-EALw_wcB_k_&utm_content=go_12559942216_122200348009_506995371353_aud-459688892115:pla-338380856521_c__554633453_583388028&utm_custom2=12559942216&gclid=Cj0KCQjwho-lBhC_ARIsAMpgMoelk91RsLNYgUfyooUtWEpxndn-LK791FRV7yUUTQ4tS4OvH9M9DScaAhT-EALw_wcB',
       category: categories[0]._id,
       price: 2.99,
-      quantity: 500
+      quantity: 5,
+      priceRange: {
+        min: 0,
+        max: 10
+      }
     },
     {
-      name: 'Canned Coffee',
-      description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
-      category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
-    },
-    {
-      name: 'Toilet Paper',
+      name: 'Bracelets',
+      description: 'Necklaces',
+      image: 'https://pkleinjewelrydesign.com/product/byzantine-chain-mail-bracelet-kit/',
       category: categories[1]._id,
-      description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
+      price: 2.99,
+      quantity: 5,
+      priceRange: {
+        min: 0,
+        max: 10
+      }
     },
     {
-      name: 'Handmade Soap',
-      category: categories[1]._id,
-      description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
+      name: 'Earrings',
+      category: categories[2]._id,
+      description: 'Earrings',
+      image: 'https://www.etsy.com/listing/719326254/orbit-loop-earrings-chainmaille-earrings',
+      price: 2.99,
+      quantity: 5,
+      priceRange: {
+        min: 0,
+        max: 10
+      }
     },
     {
-      name: 'Set of Wooden Spoons',
-      category: categories[1]._id,
-      description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
+      name: 'Metal Statues',
+      category: categories[3]._id,
+      description: 'Metal Statues',
+      image: 'https://www.canva.com/templates/EAFHiC1V4LY-yellow-modern-coming-soon-instagram-post/',
+      price: 2.99,
+      quantity: 5,
+      priceRange: {
+        min: 0,
+        max: 10
+      }
+    },
+    {
+      name: 'Other',
+      category: categories[4]._id,
+      description: 'others',
+      image: 'https://www.etsy.com/listing/1464314044/chainmail-3-pcs-set-womens-clothing?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=womens+chainmail&ref=sr_gallery-1-25&frs=1&organic_search_click=1',
       price: 14.99,
       quantity: 100
-    },
-    {
-      name: 'Camera',
-      category: categories[2]._id,
-      description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
-    },
-    {
-      name: 'Tablet',
-      category: categories[2]._id,
-      description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
-      quantity: 30
-    },
-    {
-      name: 'Tales at Bedtime',
-      category: categories[3]._id,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
-    },
-    {
-      name: 'Spinning Top',
-      category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
-      quantity: 1000
-    },
-    {
-      name: 'Set of Plastic Horses',
-      category: categories[4]._id,
-      description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
-      quantity: 1000
-    },
-    {
-      name: 'Teddy Bear',
-      category: categories[4]._id,
-      description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
-    },
-    {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
     }
   ]);
+  
 
   console.log('products seeded');
 
@@ -133,8 +83,8 @@ db.once('open', async () => {
   await User.create({
     firstName: 'Pamela',
     lastName: 'Washington',
-    email: 'pamela@testmail.com',
-    password: 'password12345',
+    email: 'misspam@gmail.com',
+    password: 'password',
     orders: [
       {
         products: [products[0]._id, products[0]._id, products[1]._id]
@@ -143,10 +93,10 @@ db.once('open', async () => {
   });
 
   await User.create({
-    firstName: 'Elijah',
+    firstName: 'Pam',
     lastName: 'Holt',
-    email: 'eholt@testmail.com',
-    password: 'password12345'
+    email: 'misspam@gmail.com',
+    password: 'password'
   });
 
   console.log('users seeded');
