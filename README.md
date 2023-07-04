@@ -7,3 +7,4 @@
 server
 //npm i 
 //npm i express
+//npm install bootstrap react-router-dom
