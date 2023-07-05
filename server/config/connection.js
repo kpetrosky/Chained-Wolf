@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-
-module.exports = mongoose.connection;
-const mongoose = require('mongoose');
-
-const databaseName = 'Chained Wolfe MetalCrafts'; // Replace 'my_database' with your desired database name without any spaces
+const databaseName = 'chainedwolfe'; // Replace 'chainedwolfe' with your desired database name without any spaces
 
 mongoose.connect(`mongodb://localhost/${databaseName}`, {
   useNewUrlParser: true,
@@ -17,3 +13,5 @@ mongoose.connect(`mongodb://localhost/${databaseName}`, {
   .catch((error) => {
     console.error('Error connecting to the database:', error);
   });
+
+module.exports = mongoose.connection;
