@@ -1,4 +1,4 @@
-// Get the necessary DOM elements
+// // Get the necessary DOM elements
 // const navToggle = document.querySelector('.nav-toggle');
 // const navMenu = document.querySelector('.nav-menu');
 // const navLinks = document.querySelectorAll('.nav-menu a');
