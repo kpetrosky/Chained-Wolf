@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const { Schema } = mongoose;
-
-const productSchema = new Schema({
+const NecklacesSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -20,18 +19,14 @@ const productSchema = new Schema({
     min: 1,
     max: 1000
   },
-  item: {
-    type: String,
-    required: true,
-    trim: true
-  },
-    category: {
+  category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
   }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Necklaces = mongoose.model('Necklaces', NecklacesSchema);
 
-module.exports = Product;
+module.exports = Necklaces;
+
