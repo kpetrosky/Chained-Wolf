@@ -1,15 +1,20 @@
 import React from 'react';
 
+
 function Header() {
   return (
     <header>
       <h1>Chain Mail Kingdom</h1>
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#shop">Shop</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#homePage">HomePage</a></li>
+          <li><a href="#cartAndCheckout">CartAndCheckout</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#customerReview">CustomerReviews</a></li>
+          <li><a href="#paymentsOptions">PaymentOptions</a></li>
+          <li><a href="#productDetails">ProductDetails</a></li>
+          <li><a href="#shippingAndReturns">ShippingAndReturns</a></li>
+
         </ul>
       </nav>
     </header>

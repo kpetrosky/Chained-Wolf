@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 // Import other components used on the homepage
@@ -13,19 +13,51 @@ import HomePage from './components/pages/homePage'; // Correct import path
 import Footer from './components/footer'; // Correct import path
 
 function App() {
+  // Define state to manage the current page
+  const [currentPage, setCurrentPage] = useState('homePage');
+
+  // Define a function to handle page changes
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  // Render the content based on the selected page
+  let pageContent;
+  switch (currentPage) {
+    case 'cartAndCheckout':
+      pageContent = <CartAndCheckout />;
+      break;
+    case 'customerReviews':
+      pageContent = <CustomerReviews />;
+      break;
+    case 'gallery':
+      pageContent = <Gallery />;
+      break;
+    case 'paymentOptions':
+      pageContent = <PaymentOptions />;
+      break;
+    case 'productDetails':
+      pageContent = <ProductDetails />;
+      break;
+    case 'shippingAndReturns':
+      pageContent = <ShippingAndReturns />;
+      break;
+    case 'homePage':
+    default:
+      pageContent = <HomePage />;
+      break;
+  }
+
   return (
     <div className="App">
-      <Header />
-      <CartAndCheckout />
-      <CustomerReviews />
-      <PaymentOptions />
-      <ProductDetails />
-      <ShippingAndReturns />
-      <HomePage />
-      <Gallery />     
+      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+      <main className="App-content">
+        {pageContent}
+      </main>
       <Footer />
     </div>
   );
 }
 
 export default App;
+
