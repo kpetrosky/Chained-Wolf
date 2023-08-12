@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css'; // Optionally, import your global CSS styles
+import ReactDOM from 'react-dom'; // Import react-dom for Concurrent Mode
+import { createRoot } from 'react-dom'; // Use createRoot directly from react-dom
+
 import App from './App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<App tab="home" />);
+ReactDOM.render(<App />, container);

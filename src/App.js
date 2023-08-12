@@ -1,63 +1,58 @@
 import React, { useState } from 'react';
-import './App.css';
-
-// Import other components used on the homepage
-import Header from './components/header';
-import CartAndCheckout from './components/pages/CartAndCheckout'; // Correct import path
-import CustomerReviews from './components/pages/CustomerReviews'; // Correct import path
-import Gallery from './components/pages/Gallery'; // Correct import path
-import PaymentOptions from './components/pages/PaymentOptions'; // Correct import path
-import ProductDetails from './components/pages/ProductDetails'; // Correct import path
-import ShippingAndReturns from './components/pages/ShippingAndReturns'; // Correct import path
-import HomePage from './components/pages/homePage'; // Correct import path
-import Footer from './components/footer'; // Correct import path
+import Header from './components/Header';
+import VerticalNavBar from './components/VerticalNavBar';
+import Home from './components/pages/Home';
+import Gallery from './components/pages/Gallery';
+import ProductDetails from './components/pages/ProductDetails';
+import CustomerReviews from './components/pages/CustomerReviews';
+import ShippingAndReturns from './components/pages/ShippingAndReturns';
+import PaymentOptions from './components/pages/PaymentOptions';
+import CartAndCheckout from './components/pages/CartAndCheckout';
+import Footer from './components/Footer';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
-  // Define state to manage the current page
-  const [currentPage, setCurrentPage] = useState('homePage');
+  const [currentPage, setCurrentPage] = useState('Home');
 
-  // Define a function to handle page changes
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  const handlePageChange = (pageName) => {
+    setCurrentPage(pageName);
   };
 
-  // Render the content based on the selected page
-  let pageContent;
+  let pageComponent;
+
   switch (currentPage) {
-    case 'cartAndCheckout':
-      pageContent = <CartAndCheckout />;
+    case 'Gallery':
+      pageComponent = <Gallery />;
       break;
-    case 'customerReviews':
-      pageContent = <CustomerReviews />;
+    case 'Product Details':
+      pageComponent = <ProductDetails />;
       break;
-    case 'gallery':
-      pageContent = <Gallery />;
+    case 'Customer Reviews':
+      pageComponent = <CustomerReviews />;
       break;
-    case 'paymentOptions':
-      pageContent = <PaymentOptions />;
+    case 'Shipping and Returns':
+      pageComponent = <ShippingAndReturns />;
       break;
-    case 'productDetails':
-      pageContent = <ProductDetails />;
+    case 'Payment Options':
+      pageComponent = <PaymentOptions />;
       break;
-    case 'shippingAndReturns':
-      pageContent = <ShippingAndReturns />;
+    case 'Cart and Checkout':
+      pageComponent = <CartAndCheckout />;
       break;
-    case 'homePage':
     default:
-      pageContent = <HomePage />;
-      break;
+      pageComponent = <Home />;
   }
 
   return (
     <div className="App">
-      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-      <main className="App-content">
-        {pageContent}
-      </main>
-      <Footer />
+      <Router>
+        <Header />
+        <VerticalNavBar currentPage={currentPage} handlePageChange={handlePageChange} />
+        {pageComponent}
+        <Footer />
+      </Router>
     </div>
   );
 }
 
 export default App;
-
